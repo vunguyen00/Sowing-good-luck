@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bốc Quẻ May Mắn</title>
+    <link rel="stylesheet" href="gieo_que.css">
+</head>
+<body>
+    <div>
+        <h1 style="color: rgb(240, 80, 107);">Bốc Quẻ May Mắn</h1>
+        <p>Ai xinh nhất thì là người được xem đầu tiên 😍😍!</p>
+        <button id="draw-button" onclick="startShake()">Bốc Quẻ</button>
+        <div id="shake-container">Đang lắc quẻ...</div>
+        <div id="quẻ-container">
+            <div class="quẻ" id="quẻ1">Quẻ 1</div>
+            <div class="quẻ" id="quẻ2">Quẻ 2</div>
+            <div class="quẻ" id="quẻ3">Quẻ 3</div>
+        </div>
+        <center><button id="view-button" onclick="showQuẻ()">Xem</button></center>
+    </div>
+    <div>
+        <center><h3 id="special-1" style="display: none; margin-top: 2vh;">Còn 1 điều đặc biệt nữa cậu muốn xem không :33</h3></center>
+        <center><button id="view-button-2" onclick="xacThuc()">Xem tiếp</button></center>
+    </div>
+
+    <!-- Form xác nhận -->
+    <div id="confirmation-form" style="display: none; text-align: center; margin-top: 2vh;">
+        <h3 style="margin-bottom: 1vh;">Cậu chắc chưa?</h3>
+        <button id="sure-button" onclick="sure()">Chắc rồi</button>
+        <button id="not-sure-button" onclick="notSure()">Chưa chắc</button>
+        <p id="not-sure-message" style="display: none; color: red; margin-top: 1vh;">Ấn chắc rồi đi.</p>
+    </div>
+
+    <!-- Form thông báo -->
+    <div id="final-message" style="display: none; text-align: center; margin-top: 2vh;">
+        <h3>Xuống dưới nhà đi có điều bất ngờ!</h3>
+        <img src="https://s3.getstickerpack.com/storage/uploads/sticker-pack/bubu-1-1/sticker_7.gif?2dc74180e1bb6f380e687d619a10e3a0&d=200x200" alt="Sticker" class="responsive-img">
+
+    </div>
+
+    <script>
+        function startShake() {
+            document.getElementById('draw-button').style.display = 'none';
+            document.getElementById('shake-container').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('shake-container').style.display = 'none';
+                document.getElementById('view-button').style.display = 'block';
+                const queElements = document.getElementsByClassName('quẻ');
+                for (let i = 0; i < queElements.length; i++) {
+                    queElements[i].style.display = 'flex';
+                }
+            }, 2000); 
+        }
+
+        function showQuẻ() {
+            document.getElementById('quẻ1').innerHTML = 'Kiên trì và thận trọng, tâm thành sẽ đạt.';
+            document.getElementById('quẻ2').innerHTML = 'Tâm tĩnh an nhiên, hạnh phúc viên mãn.';
+            document.getElementById('quẻ3').innerHTML = 'Tâm an tịnh, thân thể kiện toàn.';
+            
+            document.getElementById('view-button').style.display = 'none';
+            document.getElementById('quẻ-container').style.display = 'flex';
+            document.getElementById('view-button-2').style.display = 'block';
+            document.getElementById('special-1').style.display = 'block';
+        }
+
+        function xacThuc() {
+            // Ẩn nút "Xem tiếp" và hiển thị form xác nhận
+            document.getElementById('view-button-2').style.display = 'none';
+            document.getElementById('special-1').style.display = 'none';
+            document.getElementById('confirmation-form').style.display = 'block';
+        }
+
+        function sure() {
+            // Nếu ấn "Chắc rồi", hiển thị thông báo cuối cùng
+            document.getElementById('confirmation-form').style.display = 'none';
+            document.getElementById('final-message').style.display = 'block';
+        }
+
+        function notSure() {
+            // Nếu ấn "Chưa chắc", hiển thị thông báo "Ấn chắc rồi đi"
+            document.getElementById('not-sure-message').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

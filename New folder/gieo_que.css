@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-image: url('https://s3.getstickerpack.com/storage/uploads/sticker-pack/dudu-3/sticker_19.gif?947f14c28988be61aec8ee3fc365c552&d=200x200');
+    background-repeat: repeat; /* Lặp lại ảnh nền */
+    background-size:50%; /* Điều chỉnh kích thước ảnh để lặp lại 4 lần */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Chiều cao của body chiếm toàn bộ chiều cao màn hình */
+    background-color: #f5f5dc;
+    color: #f55151;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+button {
+    background-color: #27ae60;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #219150;
+}
+
+#shake-container {
+    display: none;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    animation: shake 0.5s ease-in-out infinite;
+}
+/* Đặt kích thước ảnh linh động với phần trăm */
+.responsive-img {
+    width: 35vw; /* Chiếm 35% chiều rộng của cửa sổ */
+    height: 65vh; /* Chiếm 65% chiều cao của cửa sổ */
+    margin-top: 2vh;
+    min-width: 30vw; /* Đảm bảo ảnh không nhỏ hơn 30% chiều rộng */
+    min-height: 55vh; /* Đảm bảo ảnh không nhỏ hơn 55% chiều cao */
+    object-fit: contain; /* Đảm bảo ảnh không bị méo */
+}
+
+/* Media Query cho màn hình nhỏ (điện thoại) */
+@media (max-width: 768px) {
+    .responsive-img {
+        width: 80vw; /* Chiếm 80% chiều rộng màn hình trên điện thoại */
+        height: auto; /* Chiều cao tự động để giữ tỉ lệ ảnh */
+        margin-top: 5vh; /* Cung cấp khoảng cách với các phần tử khác */
+        min-width: 70vw; /* Đảm bảo ảnh không quá nhỏ */
+        min-height: auto; /* Cho phép chiều cao tự động điều chỉnh */
+    }
+}
+
+/* Media Query cho màn hình rất nhỏ (điện thoại nhỏ hoặc máy tính bảng) */
+@media (max-width: 480px) {
+    .responsive-img {
+        width: 90vw; /* Chiếm 90% chiều rộng của màn hình */
+        height: auto; /* Chiều cao tự động */
+        margin-top: 5vh; /* Khoảng cách trên cùng */
+    }
+}
+
+@keyframes shake {
+    0% { transform: rotate(2deg); }
+    50% { transform: rotate(-2deg); }
+    100% { transform: rotate(2deg); }
+}
+
+#quẻ-container {
+    display: none;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.quẻ {
+    display: none;
+    min-width: 120px;
+    width: 7.5vw;
+    min-height: 160px;
+    height: 20vh;
+    background-color: #d35400;
+    color: #fff;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    padding: 10px;
+}
+
+#view-button {
+    display: none;
+    margin-top: 1.4vw;
+    width: fit-content;
+}
+#view-button-2{
+    display: none;
+    margin-top: 1vw;
+    width: fit-content;
+}
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    p {
+        font-size: 1rem;
+    }
+    .quẻ {
+        min-width: 100px;
+        height: 140px;
+        font-size: 1rem;
+        padding: 8px;
+    }
+}
